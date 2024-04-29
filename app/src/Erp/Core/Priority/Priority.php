@@ -475,7 +475,7 @@ class Priority implements ErpInterface
     public function GetUsers(): UsersDto
     {
 //        $response = $this->GetRequest('/CUSTOMERS?$expand=CUSTDISCOUNT_SUBFORM');
-        $response = $this->GetRequest('/CUSTOMERS?$expand=CUSTPERSONNEL_SUBFORM');
+        $response = $this->GetRequest('/CUSTOMERS?$top=500');
         $usersDto = new UsersDto();
 
         foreach ($response as $userRec) {
@@ -493,22 +493,22 @@ class Priority implements ErpInterface
             $userDto->taxCode = $userRec['TAXCODE'];
             $userDto->subUsers = [];
 
-            foreach ($userRec['CUSTPERSONNEL_SUBFORM'] as $subRec) {
-                $subUsers = new UserDto();
-                $subUsers->userExId = $userRec['CUSTNAME'];
-                $subUsers->userDescription = $userRec['CUSTDES'];
-                $subUsers->name = $subRec['NAME'];
-                $subUsers->isBlocked = $userRec['INACTIVEFLAG'] === 'Y' ? true : false;
-                $subUsers->phone = $subRec['CELLPHONE'];
-                $subUsers->hp = $userRec['WTAXNUM'];
-                $subUsers->payCode = $userRec['PAYCODE'];
-                $subUsers->payDes = $userRec['PAYDES'];
-                $subUsers->maxCredit = $userRec['MAX_CREDIT'];
-                $subUsers->maxObligo = $userRec['MAX_OBLIGO'];
-                $subUsers->taxCode = $userRec['TAXCODE'];
-                $userDto->subUsers[] = $subUsers;
-
-            }
+//            foreach ($userRec['CUSTPERSONNEL_SUBFORM'] as $subRec) {
+//                $subUsers = new UserDto();
+//                $subUsers->userExId = $userRec['CUSTNAME'];
+//                $subUsers->userDescription = $userRec['CUSTDES'];
+//                $subUsers->name = $subRec['NAME'];
+//                $subUsers->isBlocked = $userRec['INACTIVEFLAG'] === 'Y' ? true : false;
+//                $subUsers->phone = $subRec['CELLPHONE'];
+//                $subUsers->hp = $userRec['WTAXNUM'];
+//                $subUsers->payCode = $userRec['PAYCODE'];
+//                $subUsers->payDes = $userRec['PAYDES'];
+//                $subUsers->maxCredit = $userRec['MAX_CREDIT'];
+//                $subUsers->maxObligo = $userRec['MAX_OBLIGO'];
+//                $subUsers->taxCode = $userRec['TAXCODE'];
+//                $userDto->subUsers[] = $subUsers;
+//
+//            }
             $usersDto->users[] = $userDto;
         }
 

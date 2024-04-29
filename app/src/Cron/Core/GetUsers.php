@@ -62,6 +62,7 @@ class GetUsers
                 $user->setRoles(UsersTypes::USER);
                 $user->setRole(UsersTypes::USER);
                 $user->setIsBlocked($itemRec->isBlocked);
+                $user->setIsAgent(false);
                 $user->setUpdatedAt(new \DateTimeImmutable());
                 $user->setName($itemRec->name);
                 $user->setIsAllowOrder(true);

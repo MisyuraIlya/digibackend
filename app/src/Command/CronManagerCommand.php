@@ -66,19 +66,19 @@ class CronManagerCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
         $this->users->sync();
-        $this->categories->sync();
-        $this->products->sync();
-        $this->priceList->sync();
-        $this->priceListDetailed->sync();
-        $this->priceListUser->sync();
-        $this->packs->sync();
-        $this->productPacks->sync();
-        $this->stocks->sync();
-        $this->mainAttributes->sync();
-        $this->subAttributes->sync();
-        if(!$this->isOnlineMigvan && $this->isUsedMigvan){
-            $this->migvans->sync();
-        }
+//        $this->categories->sync();
+//        $this->products->sync();
+//        $this->priceList->sync();
+//        $this->priceListDetailed->sync();
+//        $this->priceListUser->sync();
+//        $this->packs->sync();
+//        $this->productPacks->sync();
+//        $this->stocks->sync();
+//        $this->mainAttributes->sync();
+//        $this->subAttributes->sync();
+//        if(!$this->isOnlineMigvan && $this->isUsedMigvan){
+//            $this->migvans->sync();
+//        }
         $io->success('All Cron Function Executed');
         return Command::SUCCESS;
     }

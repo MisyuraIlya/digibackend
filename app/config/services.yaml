@@ -78,7 +78,7 @@ services:
         arguments:
             $userRepository: '@App\Repository\UserRepository'
             $priceListRepository: '@App\Repository\PriceListRepository'
-            $priceListUserRepository: '@App\Repository\PriceListDetailedRepository'
+            $priceListUserRepository: '@App\Repository\PriceListUserRepository'
             $erpManager: '@App\Erp\Core\ErpManager'
 
     App\Cron\Core\GetStocks:

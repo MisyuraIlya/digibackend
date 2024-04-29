@@ -11,5 +11,14 @@ WORKDIR /var/www/project
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN curl -sS https://get.symfony.com/cli/installer | bash
-# RUN mv /root/.symfony/bin/symfony /usr/local/sbin/symfony
+# Download Symfony CLI binary
+RUN curl -sSLO https://get.symfony.com/cli/symfony.phar \
+    && mv symfony.phar /usr/local/bin/symfony \
+    && chmod +x /usr/local/bin/symfony
+
+# Add initialization script
+COPY init.sh /usr/local/bin/init.sh
+RUN chmod +x /usr/local/bin/init.sh
+
+# Run initial script
+ENTRYPOINT ["/usr/local/bin/init.sh"]
