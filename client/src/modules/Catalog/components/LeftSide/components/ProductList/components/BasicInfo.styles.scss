@@ -1,0 +1,28 @@
+.barcode-cont {
+  padding: 0 8px;
+  height: 65px;
+  margin-bottom: 8px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+
+  p {
+    margin: 0;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: $c1;
+    display: inline-block;
+
+    &.ltr {
+      direction: ltr;
+    }
+
+    &.row-title {
+      min-width: 40px;
+    }
+
+    &.ltr {
+      margin-left: 3px;
+    }
+  }
+}
